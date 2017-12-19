@@ -40,6 +40,7 @@ if($action== "valider_paiement"){
 	$req ="INSERT INTO `paiements`( `ID_PERSONNELS`, `DATE_PAIEMENT`, `SOMME_HEUR_N`, `SOMME_HEUR_S`, `DATE_POINTAGE_START`, `DATE_POINTAGE_END`, `MONTANT`) VALUES(".$idPersonne.",'".$datePaiement."',".$sommeHeurN.",".$sommeHeurN.",'".$datePointageStart."','".$datePointageEnd."',".$montant.")";
 	doQuery($req);
 	doQuery('COMMIT');
+	redirect("ajouter_paiement.php?dateDebut=".$_REQUEST['dateDebut']."&dateFin=".$_REQUEST['dateFin']."&m=Ajout du paiement de ".$_REQUEST['txtrechercher']." est validé");
 }
 
 if ($action == "ajouter_pointage"){
@@ -1744,5 +1745,5 @@ if ($action == "valider_facture_global"){
   $page="facture_global_visualiser.php";
 }
 
-redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
+//redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
 ?>	

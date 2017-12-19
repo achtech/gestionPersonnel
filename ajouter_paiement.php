@@ -33,19 +33,19 @@
 						 <div class="form-group">
 							  <label class="control-label"><?php echo _RECHERCHER ?>:</label>
 							      <div class="controls">
-							        <input type="text" name="txtrechercher" value="<?php if(isset($_POST['txtrechercher'])) echo $_POST['txtrechercher']; else echo "noura";?>" class="form-control input-small-recherche" />
+							        <input type="text" name="txtrechercher" value="<?php if(isset($_REQUEST['txtrechercher'])) echo $_REQUEST['txtrechercher'];?>" class="form-control input-small-recherche" />
 							     </div>
 						 </div>
 							 <div class="form-group">
 							  <label class="control-label">Date pointage entre:</label>
 							      <div class="controls">
-							        <input type="date" id="cal_required" name="dateDebut"  value="<?php if(isset($_POST['dateDebut'])) echo $_POST['dateDebut']; ?>" class="form-control input-small" />
+							        <input type="date" id="cal_required" name="dateDebut"  value="<?php if(isset($_REQUEST['dateDebut'])) echo $_REQUEST['dateDebut']; ?>" class="form-control input-small" />
 							     </div>
 						 </div>
 						 <div class="form-group">
 							  <label class="control-label">Et :</label>
 							      <div class="controls">
-							       <input type="date" id="cal_required" name="dateFin"  value="<?php if(isset($_POST['dateFin'])) echo $_POST['dateFin']; ?>"   class="form-control input-small" />
+							       <input type="date" id="cal_required" name="dateFin"  value="<?php if(isset($_REQUEST['dateFin'])) echo $_REQUEST['dateFin']; ?>"   class="form-control input-small" />
 							     </div>
 						 </div>
 					
@@ -58,7 +58,7 @@
 	</div>						
 </div>
 </div>		
-<?php // if(isset($_POST['txtrechercher']) && !empty($_REQUEST['txtrechercher']) && isset($_POST['dateDebut']) && !empty($_REQUEST['dateDebut']) &&  isset($_POST['dateFin']) && !empty($_REQUEST['dateFin'])) {?>
+<?php // if(isset($_REQUEST['txtrechercher']) && !empty($_REQUEST['txtrechercher']) && isset($_REQUEST['dateDebut']) && !empty($_REQUEST['dateDebut']) &&  isset($_REQUEST['dateFin']) && !empty($_REQUEST['dateFin'])) {?>
 <div class="row">
 	<div class="col-12">
 		<div class="widget-box">
@@ -74,13 +74,13 @@
 			<div class="widget-content nopadding">
 				<?php 
 					$where1="";
-					if(isset($_POST['txtrechercher']) and !empty($_REQUEST['txtrechercher']))
-					 $where1.="and (NOM like '%".$_POST['txtrechercher']."%' or PRENOM like '%".$_POST['txtrechercher']."%' or CIN like '%".$_POST['txtrechercher']."%' or TELEPHONE like '%".$_POST['txtrechercher']."%' or CNSS like '%".$_POST['txtrechercher']."%' or RIB like '%".$_POST['txtrechercher']."%' or 	DATE_EMBAUCHE like '%".$_POST['txtrechercher']."%' or CODE like '%".$_POST['txtrechercher']."%' or ADRESSE like '%".$_POST['txtrechercher']."%') ";
-					if(isset($_POST['dateDebut']) && !empty($_REQUEST['dateDebut']))
-					 $where1.=" and ID IN (SELECT ID_PERSONNELS FROM pointages where DATE_POINTAGE >= DATE_FORMAT('".$_POST['dateDebut']."', '%Y-%m-%d'))";
+					if(isset($_REQUEST['txtrechercher']) and !empty($_REQUEST['txtrechercher']))
+					 $where1.="and (NOM like '%".$_REQUEST['txtrechercher']."%' or PRENOM like '%".$_REQUEST['txtrechercher']."%' or CIN like '%".$_REQUEST['txtrechercher']."%' or TELEPHONE like '%".$_REQUEST['txtrechercher']."%' or CNSS like '%".$_REQUEST['txtrechercher']."%' or RIB like '%".$_REQUEST['txtrechercher']."%' or 	DATE_EMBAUCHE like '%".$_REQUEST['txtrechercher']."%' or CODE like '%".$_REQUEST['txtrechercher']."%' or ADRESSE like '%".$_REQUEST['txtrechercher']."%') ";
+					if(isset($_REQUEST['dateDebut']) && !empty($_REQUEST['dateDebut']))
+					 $where1.=" and ID IN (SELECT ID_PERSONNELS FROM pointages where DATE_POINTAGE >= DATE_FORMAT('".$_REQUEST['dateDebut']."', '%Y-%m-%d'))";
 
-					if(isset($_POST['dateFin']) && !empty($_REQUEST['dateFin']))
-					  $where1.=" and ID IN (SELECT ID_PERSONNELS FROM pointages where DATE_POINTAGE < DATE_FORMAT('".$_POST['dateFin']."', '%Y-%m-%d'))";
+					if(isset($_REQUEST['dateFin']) && !empty($_REQUEST['dateFin']))
+					  $where1.=" and ID IN (SELECT ID_PERSONNELS FROM pointages where DATE_POINTAGE < DATE_FORMAT('".$_REQUEST['dateFin']."', '%Y-%m-%d'))";
 
 
 					$sql = "select * from personnels where STATUS=1 ".$where1." order by ID";
@@ -96,9 +96,7 @@
 				<br/>
 				<form action="gestion.php" name="frm" method="post" 
 					onsubmit="return checkForm(document.frm);" class="form-horizontal">
-						<input type="hidden" name="act" value="ajouter_paiement"/>
-					    <input type="hidden" name="table" value="paiements"/>
-						<input type="hidden" name="page" value="paiements.php"/>
+					<input type="hidden" name="act" value="ajouter_paiement"/>
 					<input type="hidden" name="DATE_POINTAGE_START" value="<?php echo $_REQUEST['dateStart'] ?>"/>
 					<input type="hidden" name="DATE_POINTAGE_END" value="<?php echo $_REQUEST['dateFin'] ?>"/>
 					
@@ -133,7 +131,7 @@
 							<td><?php echo $ligne['TYPE']=="Salarie"?$ligne['SALAIRE_MENSUELLE']:$ligne['TARIF_JOURNALIERS'] ?></td>
 							<td><?php echo getSommeAvance($ligne['ID'],$_REQUEST['dateDebut'],$_REQUEST['dateFin']) ?></td>
 							<td><?php echo getMontant($ligne['ID'],$_REQUEST['dateDebut'],$_REQUEST['dateFin']) ?></td>
-							<td><a href="gestion.php?act=valider_paiement&personnels=<?php echo $ligne['ID']?>&dateDebut=<?php echo $_REQUEST['dateDebut']?>&dateFin=<?php echo $_REQUEST['dateFin']?>&id_noms_retour=dateDebut,dateFin&id_valeur_retour=<?php echo $_REQUEST['dateDebut']?>,<?php echo $_REQUEST['dateFin']?>&page=ajouter_paiement"
+							<td><a href="gestion.php?act=valider_paiement&personnels=<?php echo $ligne['ID']?>&dateDebut=<?php echo $_REQUEST['dateDebut']?>&dateFin=<?php echo $_REQUEST['dateFin']?>"
 				                class="supprimer2"  
 								title="Valider le paiement">
 				                	 <i class="glyphicon glyphicon-ok"></i> 
@@ -152,7 +150,7 @@
 				} //Fin If
 				?>
 				<div class="form-actions">
-							<input type="submit" class="btn btn-primary" value="<?php echo _VALIDER ?>" /> ou <a class="text-danger" href="personnels.php">Annuler</a>
+							<a class="text-danger" href="paiements.php">Retour</a>
 						</div>
 					</form>
  		</div>
