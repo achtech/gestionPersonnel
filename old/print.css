@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+@page { 
+	size:21.0cm 14.85cm;
+	margin-top:1.7cm;
+	margin-bottom:1.4cm;
+	margin-left:2cm;
+	margin-right:2cm
+}
+html{
+	background:#CCC;
+}
+body{
+	margin:auto;
+	padding:auto;
+	width:700px;
+	height:auto;
+	background:#fff;
+}
+
+.big_div{
+	
+	width:650px;
+	height:auto;
+	padding-top:20px;
+	padding-left:10px;
+	border:1px thin #000;
+
+}
+
+.header{
+	width:650px;;
+	height:50px;
+
+}
+
+.devis{
+	width:370px;
+	margin:0px 10px 10px 10px;
+	height:355px;
+	background:#fff;
+}
+.print-icon {
+	
+}
+.footer{
+	width:641px;
+	height:64px;
+	padding-top:178px;
+	padding-left:5px;
+
+}
+.footer-fact{
+	width:641px;
+	height:64px;
+	padding-top:178px;
+	padding-left:5px;
+}
+.identification{
+	padding-top:70px;
+}
+.identification-fact {
+	padding-top:190px;
+	
+}
+.total-fact{
+	width:370px;
+	padding-left:450px;
+}
+
+
