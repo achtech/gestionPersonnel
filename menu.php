@@ -6,9 +6,9 @@
 					<a href="index.php"><i class="glyphicon glyphicon-home"></i> <span> Accueil </span> </a>
 					<a href="marches.php"><i class="glyphicon glyphicon-road"></i> <span> Marches</span> </a>
 					<a href="chantiers.php"><i class="glyphicon glyphicon-lock"></i> <span> Chantiers</span> </a>
-					<a href="personnels.php"><i class="glyphicon glyphicon-user"></i> <span> Personnels 90%</span> </a>
+					<a href="personnels.php"><i class="glyphicon glyphicon-user"></i> <span> Personnels 100%</span> </a>
 					<a href="pointages.php"><i class="glyphicon glyphicon-time"></i> <span> Pointages 100%</span> </a>
-					<a href="paiements.php"><i class="glyphicon glyphicon-usd"></i> <span> Paiements</span> </a>
+					<a href="paiements.php"><i class="glyphicon glyphicon-usd"></i> <span> Paiements 100%</span> </a>
 					<a href="avances.php"><i class="glyphicon glyphicon-euro"></i> <span> Avances</span> </a>
 					<a href="postes.php"><i class="glyphicon glyphicon-lock"></i> <span> Postes 100%</span> </a>
 

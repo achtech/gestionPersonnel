@@ -117,6 +117,10 @@
 				                	<i class="fa fa-th"></i>
 				                </a>
 							    &nbsp;
+								<a href="remarque_personnel.php?personnels=<?php echo $ligne['ID'] ?>" class="detail" title="Remarque sur personnel">
+				                	<i class="glyphicon glyphicon-list-alt"></i>
+				                </a>
+							    &nbsp;
 								<a href="modifier_personnel.php?personnels=<?php echo $ligne['ID'] ?>" class="modifier2" title="<?php echo _MODIFIER ?>">
 									<i class="glyphicon glyphicon-edit"></i> 
 				                </a>

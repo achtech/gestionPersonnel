@@ -1745,5 +1745,5 @@ if ($action == "valider_facture_global"){
   $page="facture_global_visualiser.php";
 }
 
-//redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
+redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
 ?>	
