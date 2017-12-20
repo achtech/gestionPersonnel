@@ -123,13 +123,8 @@
 							<td><?php echo $ligne['CNSS'] ?></td>
 							<td><?php echo $ligne['CIN'] ?></td>
 							<td><?php echo $ligne['CODE'] ?></td>
-							<td><input type='text' name='avance_<?php echo $i;  ?>'> </td>
-							<td><a href="gestion.php?act=valider_avance&personnels=<?php echo $ligne['ID']?>"
-				                class="supprimer2"  
-								title="Valider le paiement">
-				                	 <i class="glyphicon glyphicon-ok"></i> 
-				                </a>
-				            </td>
+							<td><input type='text' name='avance_<?php echo $i;  ?>'><?php echo isset($_REQUEST['avance_'.$i]) and !empty($_REQUEST['avance_'.$i])?$_REQUEST['avance_'.$i]:"" ?> </td>
+							
 						</tr>
 						<?php
 							$i++; 
@@ -143,7 +138,7 @@
 				} //Fin If
 				?>
 				<div class="form-actions">
-					<a class="text-danger" href="avances.php">Retour</a>
+					<input type="submit" class="btn btn-primary" value="<?php echo _AJOUTER ?>" /> ou <a class="text-danger" href="avances.php">Retour</a>
 				</div>
 			</form>
  		</div>

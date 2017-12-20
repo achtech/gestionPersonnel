@@ -9,7 +9,7 @@
 					<a href="personnels.php"><i class="glyphicon glyphicon-user"></i> <span> Personnels 100%</span> </a>
 					<a href="pointages.php"><i class="glyphicon glyphicon-time"></i> <span> Pointages 100%</span> </a>
 					<a href="paiements.php"><i class="glyphicon glyphicon-usd"></i> <span> Paiements 100%</span> </a>
-					<a href="avances.php"><i class="glyphicon glyphicon-euro"></i> <span> Avances</span> </a>
+					<a href="avances.php"><i class="glyphicon glyphicon-euro"></i> <span> Avances 100%</span> </a>
 					<a href="postes.php"><i class="glyphicon glyphicon-lock"></i> <span> Postes 100%</span> </a>
 
 					<a href="administrations.php"><i class="glyphicon glyphicon-wrench"></i> <span> Administration</span> </a>

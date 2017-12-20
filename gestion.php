@@ -8,7 +8,7 @@
 
 <?php 
 echo "<center><h2>"._REDIRECT."</h2></center>";
-print_r($_REQUEST);
+//print_r($_REQUEST);
 connect ();
 //detection de la table et des champs concerné
 $tab_table = split(',',$_REQUEST['table']);
@@ -40,7 +40,7 @@ if($action== "ajouter_avance"){
 		}
 	}
 
-//	redirect("ajouter_avance.php?m=Ajout d'empreint pour : ".$_REQUEST['txtrechercher']." est validé");
+	redirect("ajouter_avance.php?m=Ajout d'empreint pour : ".$_REQUEST['txtrechercher']." est validé");
 }
 
 
@@ -1762,5 +1762,5 @@ if ($action == "valider_facture_global"){
   $page="facture_global_visualiser.php";
 }
 
-//redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
+redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
 ?>	
