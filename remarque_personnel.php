@@ -1,9 +1,9 @@
 <?php require_once('head.php'); ?>
 <?php 
-	$_SESSION['titre'] ="Gestion Personnels";
+	$_SESSION['titre'] ="Remarques des Personnels";
 	$_SESSION['breadcrumb_nav1'] ="Accueil";
 	$_SESSION['breadcrumb_nav2'] ="Personnels";
-	$_SESSION['breadcrumb_nav3'] ="";
+	$_SESSION['breadcrumb_nav3'] ="Remarques";
 	
 ?>
 <?php require_once('menu.php'); ?>

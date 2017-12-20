@@ -8,7 +8,7 @@
 
 <?php 
 echo "<center><h2>"._REDIRECT."</h2></center>";
-//print_r($_REQUEST);
+print_r($_REQUEST);
 connect ();
 //detection de la table et des champs concerné
 $tab_table = split(',',$_REQUEST['table']);
@@ -27,6 +27,23 @@ $champ_modif=$_REQUEST['champ_modif'];
 $valeur_modif=$_REQUEST['valeur_modif'];
 
 //AJOUT
+if($action== "ajouter_avance"){
+	$nb =  isset($_REQUEST['nb_personnage']) && !empty($_REQUEST['nb_personnage']) ? $_REQUEST['nb_personnage'] : 0;
+	for($i=0;$i<$nb;$i++){
+		$idPersonne = isset($_REQUEST['id_'.$i]) && !empty($_REQUEST['id_'.$i]) ? $_REQUEST['id_'.$i] : 0;
+		$datePaiement = date("Y-m-d");
+		$montant = isset($_REQUEST['avance_'.$i]) && !empty($_REQUEST['avance_'.$i]) ? $_REQUEST['avance_'.$i] : 0;
+		if($montant>0){
+			$req ="INSERT INTO `avances`(`ID_PERSONNELS`, `DATE_EMPREINTE`, `MONTANT`) VALUES(".$idPersonne.",'".$datePaiement."',".$montant.")";
+			doQuery($req);
+			doQuery('COMMIT');			
+		}
+	}
+
+//	redirect("ajouter_avance.php?m=Ajout d'empreint pour : ".$_REQUEST['txtrechercher']." est validé");
+}
+
+
 if($action== "valider_paiement"){
 	$idPersonne = isset($_REQUEST['personnels']) && !empty($_REQUEST['personnels']) ? $_REQUEST['personnels'] : "";
 	$start =  isset($_REQUEST['dateDebut']) && !empty($_REQUEST['dateDebut']) ? $_REQUEST['dateDebut'] : "";
@@ -1745,5 +1762,5 @@ if ($action == "valider_facture_global"){
   $page="facture_global_visualiser.php";
 }
 
-redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
+//redirect($page."?".$chaine_retour."&m=".$msg."&er=".$msg_err."#ancre");
 ?>	

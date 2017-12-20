@@ -67,10 +67,10 @@
 				<?php 
 					$where1="";
 					if(isset($_POST['txtrechercher']) and !empty($_REQUEST['txtrechercher']))
-					 $where1.="and (nom like '%".$_POST['txtrechercher']."%' or prenom like '%".$_POST['txtrechercher']."%' or cin like '%".$_POST['txtrechercher']."%' or telephone like '%".$_POST['txtrechercher']."%' or cnss like '%".$_POST['txtrechercher']."%' or rib like '%".$_POST['txtrechercher']."%' or 	DATE_EMBAUCHE like '%".$_POST['txtrechercher']."%' or code like '%".$_POST['txtrechercher']."%' or poste like '%".$_POST['txtrechercher']."%' or adresse like '%".$_POST['txtrechercher']."%') ";
+					 $where1.="and (NOM like '%".$_POST['txtrechercher']."%' or PRENOM like '%".$_POST['txtrechercher']."%' or CIN like '%".$_POST['txtrechercher']."%' or TELEPHONE like '%".$_POST['txtrechercher']."%' or CNSS like '%".$_POST['txtrechercher']."%' or RIB like '%".$_POST['txtrechercher']."%' or 	DATE_EMBAUCHE like '%".$_POST['txtrechercher']."%' or CODE like '%".$_POST['txtrechercher']."%' or ADRESSE like '%".$_POST['txtrechercher']."%') ";
 
 				
-					$sql = "select * from personnels where status=1 ".$where1." order by id";
+					$sql = "select * from personnels where STATUS=1 ".$where1." order by ID";
 					$res = doQuery($sql);
 
 					$nb = mysql_num_rows($res);

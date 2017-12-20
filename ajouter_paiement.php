@@ -58,7 +58,7 @@
 	</div>						
 </div>
 </div>		
-<?php // if(isset($_REQUEST['txtrechercher']) && !empty($_REQUEST['txtrechercher']) && isset($_REQUEST['dateDebut']) && !empty($_REQUEST['dateDebut']) &&  isset($_REQUEST['dateFin']) && !empty($_REQUEST['dateFin'])) {?>
+<?php if(isset($_REQUEST['txtrechercher']) && !empty($_REQUEST['txtrechercher']) && isset($_REQUEST['dateDebut']) && !empty($_REQUEST['dateDebut']) &&  isset($_REQUEST['dateFin']) && !empty($_REQUEST['dateFin'])) {?>
 <div class="row">
 	<div class="col-12">
 		<div class="widget-box">
@@ -157,5 +157,5 @@
 	   </div>
 	</div>
 </div>
-<?php // } ?>
+<?php  } ?>
 <?php require_once('foot.php'); ?>
